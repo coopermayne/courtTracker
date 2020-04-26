@@ -60,7 +60,7 @@
       </thead>
 
       <tbody>
-        <% @hearings.sort_by(&:time).each do |hearing| %>
+        <% @hearings.sort_by(&:time).reverse.each do |hearing| %>
           <tr>
             <td> <%= hearing.time.strftime("%m/%d/%Y") %></td>
             <td> <%= hearing.time.strftime("%I:%M%p") %></td>
