@@ -13,14 +13,13 @@ task :scrape => :environment do
   end
 
   #EMAIL USERS
+  ########## send the new docuemnts in an email... and mark needs_email false
+  
   User.all.each do |user|
-########## scrape lacourt.org for each case in DB
-    #scan_for_new_criminal_data(user)
 
     new_documents = user.documents.select(&:needs_email)
     new_hearings = user.hearings.select(&:needs_email)
 
-########## send the new docuemnts in an email... and mark needs_email false
     
     unless new_documents.empty? && new_hearings.empty?
       ( new_hearings + new_documents ).each {|item| item.needs_email=false; item.save}

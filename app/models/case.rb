@@ -105,6 +105,12 @@ class Case < ApplicationRecord
     end
   end
 
+  ######
+  ######
+  ######     Essential scraping code
+  ######
+  ######
+  
   def scrape_civil_data
     require 'rubygems'
     require 'mechanize'
